@@ -1,0 +1,13 @@
+{
+  "EMAIL_ADDRESS": "이메일 주소",
+  "EMAIL_HINT": "example@example.com",
+  "NOT_VALID_EMAIL": "올바른 이메일 주소가 아닙니다.",
+  "PASSWORD": "비밀번호",
+  "PASSWORD_HINT": "6글자 이상의 문자와 숫자 조합.",
+  "NOT_VALID_PASSWORD": "올바른 비밀번호가 아닙니다. 비밀번호는 6글자 이상의 문자와 숫자 조합이어야 합니다.",
+  "PASSWORD_OK": "비밀번호 확인",
+  "PASSWORD_OK_HINT": "비밀번호를 한번 더 입력해주세요.",
+  "SIGN_UP": "회원가입",
+  "LOGIN": "로그인",
+  "FORGOT_PASSWORD": "비밀번호를 잊어버렸습니까"
+}

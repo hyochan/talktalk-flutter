@@ -1,0 +1,13 @@
+{
+  "EMAIL_ADDRESS": "Email address",
+  "EMAIL_HINT": "example@example.com",
+  "NOT_VALID_EMAIL": "Email address is not valid.",
+  "PASSWORD": "Password",
+  "PASSWORD_HINT": "Alphabet + number with more than 5 letters.",
+  "NOT_VALID_PASSWORD": "Not a valid password. Password should be alphanumeric with more than 5 letters.",
+  "PASSWORD_OK": "Confirm password",
+  "PASSWORD_OK_HINT": "Re-enter the password.",
+  "SIGN_UP": "Sign up",
+  "LOGIN": "Login",
+  "FORGOT_PASSWORD": "Forgot password"
+}
