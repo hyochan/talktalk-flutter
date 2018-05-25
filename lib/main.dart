@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter\_localizations/flutter\_localizations.dart';
 import './utils/localization.dart';
 
-import './screen/intro.dart';
+import './screen/loading.dart';
 import './screen/login.dart';
 import './screen/sign_up.dart';
 import './screen/find_pw.dart';
@@ -10,7 +10,7 @@ import './screen/find_pw.dart';
 void main() {
   runApp(MaterialApp(
     routes: {
-      '/intro': (BuildContext context) => Intro(),
+      '/loading': (BuildContext context) => Loading(),
       '/login': (BuildContext context) => Login(),
       '/sign_up': (BuildContext context) => SignUp(),
       '/find_pw': (BuildContext context) => FindPw(),
@@ -32,8 +32,8 @@ void main() {
       }
       return supportedLocales.first;
     },
-    title: 'BooKoo',
-    home: Intro(),
+    title: 'TalkTalk',
+    home: Loading(),
     // home: Intro(),
   ));
 }
