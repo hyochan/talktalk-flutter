@@ -1,8 +1,27 @@
 import 'package:flutter/material.dart';
 import '../utils/theme.dart' as Theme;
 import '../utils/localization.dart';
+import 'dart:async';
 
-class Loading extends StatelessWidget {
+class Loading extends StatefulWidget {
+  Loading({Key key}) : super(key: key);
+
+  @override
+  LoadingState createState() => new LoadingState();
+}
+
+class LoadingState extends State<Loading> {
+  @override
+  void initState() {
+    Timer(Duration(seconds: 1), () {
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        '/login',
+        ModalRoute.withName('/loading'),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var localization = Localization.of(context);
