@@ -34,7 +34,7 @@ class FindPwState extends State<FindPw> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(localization.trans('PASSWORD_FIND'), style: TextStyle(color: Colors.black87)),
+        title: Text(localization.trans('FIND_PASSWORD'), style: TextStyle(color: Colors.black87)),
         backgroundColor: Colors.white,
         brightness: Brightness.light,
         iconTheme: IconThemeData(color: Colors.black87),
