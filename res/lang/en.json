@@ -7,7 +7,10 @@
   "NOT_VALID_PASSWORD": "Not a valid password. Password should be alphanumeric with more than 5 letters.",
   "PASSWORD_OK": "Confirm password",
   "PASSWORD_OK_HINT": "Re-enter the password.",
+  "NOT_VALID_PASSWORD_OK": "Password doesn't match.",
   "SIGN_UP": "Sign up",
   "LOGIN": "Login",
-  "FORGOT_PASSWORD": "Forgot password"
+  "FORGOT_PASSWORD": "Forgot password",
+  "FIND_PASSWORD": "Find password",
+  "SEND": "Send"
 }

@@ -67,7 +67,7 @@ class FindPwState extends State<FindPw> {
                           ),
                           validator: (val) {
                             if (!isEmail(val)) {
-                              return localization.trans('ERR_NO_VALID_EMAI');
+                              return localization.trans('NOT_VALID_EMAIL');
                             }
                           },
                           autocorrect: false,

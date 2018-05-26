@@ -40,7 +40,7 @@ class SignUpState extends State<SignUp> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(localization.trans('SIGNUP'), style: TextStyle(color: Colors.black87)),
+        title: Text(localization.trans('SIGN_UP'), style: TextStyle(color: Colors.black87)),
         backgroundColor: Colors.white,
         brightness: Brightness.light,
         iconTheme: IconThemeData(color: Colors.black87),
@@ -107,7 +107,7 @@ class SignUpState extends State<SignUp> {
                         ),
                         validator: (val) {
                           if (val != _password) {
-                            return localization.trans('NOT_VALID_PASSWORD');
+                            return localization.trans('NOT_VALID_PASSWORD_OK');
                           }
                         },
                         autocorrect: false,
