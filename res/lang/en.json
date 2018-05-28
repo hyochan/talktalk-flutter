@@ -13,5 +13,7 @@
   "FORGOT_PASSWORD": "Forgot password",
   "FIND_PASSWORD": "Find password",
   "TYPE_PASSWORD": "Please enter password.",
+  "FRIEND": "Friend",
+  "MESSAGE": "Message",
   "SEND": "Send"
 }

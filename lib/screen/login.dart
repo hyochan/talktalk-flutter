@@ -75,11 +75,11 @@ class LoginState extends State<Login> {
                     Row(
                       children: <Widget>[
                         Container(child:
-                        Image(
-                          image: icApp,
-                          width: 60.0,
-                          height: 48.0,
-                        ),
+                          Image(
+                            image: icApp,
+                            width: 60.0,
+                            height: 48.0,
+                          ),
                           padding: const EdgeInsets.only(top: 110.0),
                           margin: const EdgeInsets.only(bottom: 16.0),
                         ),

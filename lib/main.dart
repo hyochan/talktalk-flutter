@@ -6,6 +6,7 @@ import './screen/loading.dart';
 import './screen/login.dart';
 import './screen/sign_up.dart';
 import './screen/find_pw.dart';
+import './screen/home.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -14,6 +15,7 @@ void main() {
       '/login': (BuildContext context) => Login(),
       '/sign_up': (BuildContext context) => SignUp(),
       '/find_pw': (BuildContext context) => FindPw(),
+      '/tab_home': (BuildContext context) => Home(),
     },
     supportedLocales: [
       const Locale('en', 'US'),
@@ -34,6 +36,6 @@ void main() {
     },
     title: 'TalkTalk',
     home: Loading(),
-    // home: Intro(),
+//    home: Home(),
   ));
 }

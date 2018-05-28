@@ -32,6 +32,11 @@ flutter:
     - res/lang/en.json
     - res/lang/ko.json
     - assets/icons/app-icon.png
+    - assets/icons/2.0x/app-icon.png
+    - assets/icons/3.0x/app-icon.png
+    - assets/icons/thumb-man.png
+    - assets/icons/2.0x/thumb-man.png
+    - assets/icons/3.0x/thumb-man.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
