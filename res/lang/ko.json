@@ -12,5 +12,6 @@
   "LOGIN": "로그인",
   "FORGOT_PASSWORD": "비밀번호를 잊어버렸습니까",
   "FIND_PASSWORD": "비밀번호 찾기",
+  "TYPE_PASSWORD": "패스워드를 입력해주세요.",
   "SEND": "보내기"
 }

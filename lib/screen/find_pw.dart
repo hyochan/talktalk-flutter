@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../utils/localization.dart';
 import '../shared/btn.dart';
+import '../utils/theme.dart' as Theme;
 
 class FindPw extends StatefulWidget {
   FindPw({Key key}) : super(key: key);
@@ -64,6 +65,9 @@ class FindPwState extends State<FindPw> {
                           decoration: InputDecoration(
                             labelText: localization.trans('EMAIL_ADDRESS'),
                             hintText: localization.trans('EMAIL_HINT'),
+                            border: OutlineInputBorder(
+                              borderRadius: new BorderRadius.circular(4.0),
+                            ),
                           ),
                           validator: (val) {
                             if (!isEmail(val)) {
@@ -73,17 +77,22 @@ class FindPwState extends State<FindPw> {
                           autocorrect: false,
                           onSaved: (val) => _email = val,
                         ),
-                        margin: const EdgeInsets.only(top: 30.0),
+                        margin: const EdgeInsets.only(top: 40.0),
                       ),
                       Container(child:
-                        Btn(
-                          txt: localization.trans('SEND'),
-                          onPress: _submit,
-                          height: 48.0,
-                          color: Color.fromRGBO(13, 156, 197, 1.0),
-                          margin: const EdgeInsets.only(left: 0.0, right: 6.0),
+                        RaisedButton(
+                          child: Text(
+                            localization.trans('SEND'),
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                          onPressed: _submit,
+                          color: Theme.Colors.dodgerBlue,
                         ),
-                        margin: const EdgeInsets.only(top: 40.0),
+                        height: 60.0,
+                        margin: const EdgeInsets.only(top: 20.0, bottom: 80.0),
                       ),
                     ],
                   ),

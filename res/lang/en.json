@@ -12,5 +12,6 @@
   "LOGIN": "Login",
   "FORGOT_PASSWORD": "Forgot password",
   "FIND_PASSWORD": "Find password",
+  "TYPE_PASSWORD": "Please enter password.",
   "SEND": "Send"
 }

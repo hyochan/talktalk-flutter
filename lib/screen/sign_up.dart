@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../utils/localization.dart';
 import '../shared/btn.dart';
+import '../utils/theme.dart' as Theme;
 
 class SignUp extends StatefulWidget {
   SignUp({Key key}) : super(key: key);
@@ -70,6 +71,9 @@ class SignUpState extends State<SignUp> {
                         decoration: InputDecoration(
                           labelText: localization.trans('EMAIL_ADDRESS'),
                           hintText: localization.trans('EMAIL_HINT'),
+                          border: OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(4.0),
+                          ),
                         ),
                         validator: (val) {
                           if (!isEmail(val)) {
@@ -79,13 +83,16 @@ class SignUpState extends State<SignUp> {
                         autocorrect: false,
                         onSaved: (val) => _email = val,
                       ),
-                      margin: const EdgeInsets.only(top: 20.0),
+                      margin: const EdgeInsets.only(top: 60.0),
                     ),
                     Container(child:
                       TextFormField(
                         decoration: InputDecoration(
                           labelText: localization.trans('PASSWORD'),
                           hintText: localization.trans('PASSWORD_HINT'),
+                          border: OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(4.0),
+                          ),
                         ),
                         validator: (val) {
                           if (val.length < 6 || isAlpha(val) || isNumeric(val)) {
@@ -97,13 +104,16 @@ class SignUpState extends State<SignUp> {
                         onSaved: (val) => _password = val,
                         obscureText: true,
                       ),
-                      margin: const EdgeInsets.only(top: 10.0),
+                      margin: const EdgeInsets.only(top: 32.0),
                     ),
                     Container(child:
                       TextFormField(
                         decoration: InputDecoration(
                           labelText: localization.trans('PASSWORD_OK'),
                           hintText: localization.trans('PASSWORD_OK_HINT'),
+                          border: OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(4.0),
+                          ),
                         ),
                         validator: (val) {
                           if (val != _password) {
@@ -114,17 +124,22 @@ class SignUpState extends State<SignUp> {
                         onSaved: (val) => _passwordOk = val,
                         obscureText: true,
                       ),
-                      margin: const EdgeInsets.only(top: 10.0),
+                      margin: const EdgeInsets.only(top: 32.0),
                     ),
                     Container(child:
-                      Btn(
-                        txt: localization.trans('SIGN_UP'),
-                        onPress: _submit,
-                        height: 48.0,
-                        color: Color.fromRGBO(13, 156, 197, 1.0),
-                        margin: const EdgeInsets.only(left: 0.0, right: 6.0),
+                      RaisedButton(
+                        child: Text(
+                          localization.trans('SIGN_UP'),
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                        onPressed: _submit,
+                        color: Theme.Colors.dodgerBlue,
                       ),
-                      margin: const EdgeInsets.only(top: 40.0),
+                      height: 60.0,
+                      margin: const EdgeInsets.only(top: 40.0, bottom: 80.0),
                     ),
                   ],
                 )),

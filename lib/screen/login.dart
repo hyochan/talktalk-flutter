@@ -80,7 +80,7 @@ class LoginState extends State<Login> {
                           width: 60.0,
                           height: 48.0,
                         ),
-                          padding: const EdgeInsets.only(top: 100.0),
+                          padding: const EdgeInsets.only(top: 110.0),
                           margin: const EdgeInsets.only(bottom: 16.0),
                         ),
                       ],
@@ -104,9 +104,9 @@ class LoginState extends State<Login> {
                       decoration: InputDecoration(
                         labelText: localization.trans('EMAIL_ADDRESS'),
                         hintText: localization.trans('EMAIL_HINT'),
-//                        border: new OutlineInputBorder(
-//                          borderRadius: new BorderRadius.circular(12.0),
-//                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: new BorderRadius.circular(4.0),
+                        ),
                       ),
                       validator: (val) {
                         if (!isEmail(val)) {
@@ -116,17 +116,20 @@ class LoginState extends State<Login> {
                       autocorrect: false,
                       onSaved: (val) => _email = val,
                     ),
-                      margin: const EdgeInsets.only(top: 100.0),
+                      margin: const EdgeInsets.only(top: 110.0),
                     ),
                     Container(child:
                     TextFormField(
                       decoration: InputDecoration(
                         labelText: localization.trans('PASSWORD'),
                         hintText: localization.trans('PASSWORD_HINT'),
+                        border: OutlineInputBorder(
+                          borderRadius: new BorderRadius.circular(4.0),
+                        ),
                       ),
                       validator: (val) {
                         if (val.length == 0) {
-                          return localization.trans('NOT_VALID_PASSWORD');
+                          return localization.trans('TYPE_PASSWORD');
                         }
                       },
                       autocorrect: false,
@@ -138,34 +141,38 @@ class LoginState extends State<Login> {
                     Container(child:
                     Row(children: <Widget>[
                       Expanded(child:
-                      Btn(
-                        txt: localization.trans('SIGN_UP'),
-                        onPress: () {
-                          Navigator.pushNamed(
-                            context,
-                            '/sign_up',
-                          );
-                        },
-                        height: 60.0,
-                        fontSize: 16.0,
-                        color: Color.fromRGBO(13, 156, 197, 1.0),
-                        margin: const EdgeInsets.only(left: 0.0, right: 6.0),
-                      ),
+                        Btn(
+                          txt: localization.trans('SIGN_UP'),
+                          onPress: () {
+                            Navigator.pushNamed(
+                              context,
+                              '/sign_up',
+                            );
+                          },
+                          height: 60.0,
+                          fontSize: 16.0,
+                          color: Color.fromRGBO(13, 156, 197, 1.0),
+                          margin: const EdgeInsets.only(left: 0.0, right: 6.0),
+                        ),
                       ),
                       Expanded(child:
-                      Btn(
-                        txt: Localization.of(context).trans('LOGIN'),
-                        onPress: () {
-                          _submit(context);
-                        },
-                        height: 60.0,
-                        fontSize: 16.0,
-                        color: Color.fromRGBO(13, 156, 197, 1.0),
-                        margin: const EdgeInsets.only(left: 6.0, right: 0.0),
-                      ),
+                        Container(child:
+                          RaisedButton(
+                            child: Text(
+                              localization.trans('LOGIN'),
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.white,
+                              ),
+                            ),
+                            onPressed: () { _submit(context); },
+                            color: Theme.Colors.dodgerBlue,
+                          ),
+                          height: 60.0,
+                        ),
                       ),
                     ]),
-                      margin: const EdgeInsets.only(top: 40.0),
+                      margin: const EdgeInsets.only(top: 20.0),
                     ),
                     Container(child:
                     FlatButton(
