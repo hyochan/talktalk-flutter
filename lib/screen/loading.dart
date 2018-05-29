@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../utils/theme.dart' as Theme;
 import '../utils/localization.dart';
 import 'dart:async';
+import '../utils/theme.dart' as Theme;
 
 class Loading extends StatefulWidget {
   Loading({Key key}) : super(key: key);
@@ -25,14 +26,13 @@ class LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     var localization = Localization.of(context);
-    var icApp = AssetImage("assets/icons/app-icon.png");
 
     return Scaffold(
       body: Container(
         child: new Column(
           children: <Widget>[
             Image(
-              image: icApp,
+              image: Theme.Icons.icApp,
               width: 100.2,
               height: 61.6,
               color: Colors.white,

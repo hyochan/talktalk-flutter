@@ -9,7 +9,6 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> with SingleTickerProviderStateMixin {
-  var icThumbMan = AssetImage("assets/icons/thumb-man.png");
   TabController tabController;
 
   @override
@@ -38,7 +37,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 Expanded(child:
                   Btn(
                     image: Image(
-                      image: icThumbMan,
+                      image: Theme.Icons.icThumbMan,
                       width: 40.0,
                       height: 40.0,
                     ),

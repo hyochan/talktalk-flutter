@@ -13,7 +13,6 @@ class Login extends StatefulWidget {
 }
 
 class LoginState extends State<Login> {
-  var icApp = AssetImage("assets/icons/app-icon.png");
   final formKey = GlobalKey<FormState>();
   String _email;
   String _password;
@@ -76,7 +75,7 @@ class LoginState extends State<Login> {
                       children: <Widget>[
                         Container(child:
                           Image(
-                            image: icApp,
+                            image: Theme.Icons.icApp,
                             width: 60.0,
                             height: 48.0,
                           ),

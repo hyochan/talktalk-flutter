@@ -33,7 +33,6 @@ class SearchUserState extends State<SearchUser> {
   @override
   Widget build(BuildContext context) {
     var localization = Localization.of(context);
-    var icSearch = AssetImage("assets/icons/icSearch.png");
 
     return Scaffold(
       appBar: AppBar(
@@ -73,7 +72,7 @@ class SearchUserState extends State<SearchUser> {
                 Container(child:
                   RawMaterialButton(
                     padding: const EdgeInsets.all(0.0),
-                    child: Image(image: icSearch),
+                    child: Image(image: Theme.Icons.icSearch),
                     onPressed: () {
                       print('search pressed');
                     },

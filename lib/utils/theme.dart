@@ -21,3 +21,11 @@ class Colors {
   static const dusk = Color.fromARGB(255, 65, 77, 107);
   static const disabled = Color.fromARGB(255, 210, 210, 210);
 }
+
+class Icons {
+  Icons._();
+  static var icThumbMan = AssetImage("assets/icons/thumb-man.png");
+  static var icApp = AssetImage("assets/icons/app-icon.png");
+  static var icSearch = AssetImage("assets/icons/icSearch.png");
+}
+
