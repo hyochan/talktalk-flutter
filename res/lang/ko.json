@@ -15,5 +15,6 @@
   "TYPE_PASSWORD": "패스워드를 입력해주세요.",
   "FRIEND": "친구",
   "MESSAGE": "메시지",
+  "FIND_USER": "사용자 검색",
   "SEND": "보내기"
 }

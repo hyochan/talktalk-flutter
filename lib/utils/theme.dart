@@ -19,4 +19,5 @@ class Colors {
   static const greenBlue = Color.fromARGB(255, 36, 205, 151);
   static const warmGray = Color.fromARGB(255, 151, 151, 151);
   static const dusk = Color.fromARGB(255, 65, 77, 107);
+  static const disabled = Color.fromARGB(255, 210, 210, 210);
 }

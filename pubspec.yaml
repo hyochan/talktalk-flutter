@@ -37,6 +37,9 @@ flutter:
     - assets/icons/thumb-man.png
     - assets/icons/2.0x/thumb-man.png
     - assets/icons/3.0x/thumb-man.png
+    - assets/icons/icSearch.png
+    - assets/icons/2.0x/icSearch.png
+    - assets/icons/3.0x/icSearch.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

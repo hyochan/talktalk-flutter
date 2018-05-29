@@ -58,7 +58,10 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 IconButton(
                   icon: Icon(Icons.add),
                   onPressed: () {
-                    print('onPress');
+                    Navigator.pushNamed(
+                      context,
+                      '/search_user',
+                    );
                   },
                 ),
               ]),

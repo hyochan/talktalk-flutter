@@ -15,5 +15,6 @@
   "TYPE_PASSWORD": "Please enter password.",
   "FRIEND": "Friend",
   "MESSAGE": "Message",
+  "FIND_USER": "Find user",
   "SEND": "Send"
 }

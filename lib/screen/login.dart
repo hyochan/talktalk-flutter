@@ -100,99 +100,99 @@ class LoginState extends State<Login> {
                       ],
                     ),
                     Container(child:
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: localization.trans('EMAIL_ADDRESS'),
-                        hintText: localization.trans('EMAIL_HINT'),
-                        border: OutlineInputBorder(
-                          borderRadius: new BorderRadius.circular(4.0),
+                      TextFormField(
+                        decoration: InputDecoration(
+                          labelText: localization.trans('EMAIL_ADDRESS'),
+                          hintText: localization.trans('EMAIL_HINT'),
+                          border: OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(4.0),
+                          ),
                         ),
+                        validator: (val) {
+                          if (!isEmail(val)) {
+                            return localization.trans('NOT_VALID_EMAIL');
+                          }
+                        },
+                        autocorrect: false,
+                        onSaved: (val) => _email = val,
                       ),
-                      validator: (val) {
-                        if (!isEmail(val)) {
-                          return localization.trans('NOT_VALID_EMAIL');
-                        }
-                      },
-                      autocorrect: false,
-                      onSaved: (val) => _email = val,
-                    ),
                       margin: const EdgeInsets.only(top: 110.0),
                     ),
                     Container(child:
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: localization.trans('PASSWORD'),
-                        hintText: localization.trans('PASSWORD_HINT'),
-                        border: OutlineInputBorder(
-                          borderRadius: new BorderRadius.circular(4.0),
+                      TextFormField(
+                        decoration: InputDecoration(
+                          labelText: localization.trans('PASSWORD'),
+                          hintText: localization.trans('PASSWORD_HINT'),
+                          border: OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(4.0),
+                          ),
                         ),
+                        validator: (val) {
+                          if (val.length == 0) {
+                            return localization.trans('TYPE_PASSWORD');
+                          }
+                        },
+                        autocorrect: false,
+                        onSaved: (val) => _password = val,
+                        obscureText: true,
                       ),
-                      validator: (val) {
-                        if (val.length == 0) {
-                          return localization.trans('TYPE_PASSWORD');
-                        }
-                      },
-                      autocorrect: false,
-                      onSaved: (val) => _password = val,
-                      obscureText: true,
-                    ),
                       margin: const EdgeInsets.only(top: 10.0),
                     ),
                     Container(child:
-                    Row(children: <Widget>[
-                      Expanded(child:
-                        Btn(
-                          txt: localization.trans('SIGN_UP'),
-                          onPress: () {
-                            Navigator.pushNamed(
-                              context,
-                              '/sign_up',
-                            );
-                          },
-                          height: 60.0,
-                          fontSize: 16.0,
-                          color: Color.fromRGBO(13, 156, 197, 1.0),
-                          margin: const EdgeInsets.only(left: 0.0, right: 6.0),
-                        ),
-                      ),
-                      Expanded(child:
-                        Container(child:
-                          RaisedButton(
-                            child: Text(
-                              localization.trans('LOGIN'),
-                              style: TextStyle(
-                                fontSize: 16.0,
-                                color: Colors.white,
-                              ),
-                            ),
-                            onPressed: () { _submit(context); },
-                            color: Theme.Colors.dodgerBlue,
+                      Row(children: <Widget>[
+                        Expanded(child:
+                          Btn(
+                            txt: localization.trans('SIGN_UP'),
+                            onPress: () {
+                              Navigator.pushNamed(
+                                context,
+                                '/sign_up',
+                              );
+                            },
+                            height: 60.0,
+                            fontSize: 16.0,
+                            color: Color.fromRGBO(13, 156, 197, 1.0),
+                            margin: const EdgeInsets.only(left: 0.0, right: 6.0),
                           ),
-                          height: 60.0,
                         ),
-                      ),
-                    ]),
+                        Expanded(child:
+                          Container(child:
+                            RaisedButton(
+                              child: Text(
+                                localization.trans('LOGIN'),
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              onPressed: () { _submit(context); },
+                              color: Theme.Colors.dodgerBlue,
+                            ),
+                            height: 60.0,
+                          ),
+                        ),
+                      ]),
                       margin: const EdgeInsets.only(top: 20.0),
                     ),
                     Container(child:
-                    FlatButton(
-                      onPressed: () {
-                        Navigator.pushNamed(
-                          context,
-                          '/find_pw',
-                        );
-                      },
-                      child: Text(
-                        localization.trans('FORGOT_PASSWORD') + '?',
-                        style: TextStyle(
-                          color: Theme.Colors.dodgerBlue,
-                          fontSize: 12.0,
-                          decoration: TextDecoration.combine([
-                            TextDecoration.underline
-                          ]),
+                      FlatButton(
+                        onPressed: () {
+                          Navigator.pushNamed(
+                            context,
+                            '/find_pw',
+                          );
+                        },
+                        child: Text(
+                          localization.trans('FORGOT_PASSWORD') + '?',
+                          style: TextStyle(
+                            color: Theme.Colors.dodgerBlue,
+                            fontSize: 12.0,
+                            decoration: TextDecoration.combine([
+                              TextDecoration.underline
+                            ]),
+                          ),
                         ),
                       ),
-                    ),
                       margin: const EdgeInsets.only(top: 10.0, bottom: 112.0),
                     )
                   ],
