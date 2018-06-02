@@ -40,6 +40,9 @@ flutter:
     - assets/icons/icSearch.png
     - assets/icons/2.0x/icSearch.png
     - assets/icons/3.0x/icSearch.png
+    - assets/icons/icNullProfile.png
+    - assets/icons/2.0x/icNullProfile.png
+    - assets/icons/3.0x/icNullProfile.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

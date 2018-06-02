@@ -1,6 +1,7 @@
 import 'package:validator/validator.dart';
 import 'package:flutter/material.dart';
 
+import 'dart:async';
 import '../utils/localization.dart';
 import '../shared/btn.dart';
 import '../utils/theme.dart' as Theme;
