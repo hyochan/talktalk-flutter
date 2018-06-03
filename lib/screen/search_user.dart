@@ -7,6 +7,7 @@ import '../shared/text_input.dart';
 import '../shared/btn.dart';
 import '../models/user.dart';
 import '../shared/user_list_item.dart';
+import '../shared/user_dialog.dart';
 import '../utils/theme.dart' as Theme;
 
 class SearchUser extends StatefulWidget {
@@ -20,23 +21,32 @@ class SearchUserState extends State<SearchUser> {
   final formKey = GlobalKey<FormState>();
   List<User> userList;
 
-  void _SearchUser() {
-    print('signup');
-  }
-
   void onSelectUser(User user, int index) {
     print('select user');
+    showDialog(context: context, child: UserDialog(
+      index: index,
+      user: user,
+      handleAdd: () {
+        print('handleAdd $index');
+      },
+      handleChat: () {
+        print('handleChat ${user.displayName}');
+      },
+    ));
   }
 
   @override
   void initState() {
     userList = List<User>();
-    User user = User();
-    user.displayName = 'display name 1';
-    user.email = 'hello@gmail.com';
-    user.img = '';
-    user.statusMsg = 'test';
-    userList.add(user); // for header
+    userList.add(User()); // for header
+
+    User user = User.initWithParams(
+      '', '두부랩', 'dooboolab@gmail.com', '', '알콩달콩~~',
+    );
+    userList.add(user);
+    user = User.initWithParams(
+      '', '테스터', 'tester@gmail.com', '', '디버깅~~',
+    );
     userList.add(user);
   }
 

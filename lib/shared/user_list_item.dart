@@ -22,7 +22,7 @@ class UserListItemState extends State<UserListItem> {
   @override
   Widget build(BuildContext context) {
     var img = user.img != ''
-        ? Image.network(user.img)
+        ? Image.network(this.user.img)
         : AssetImage('assets/icons/icNullProfile.png');
 
     return RawMaterialButton(
@@ -32,7 +32,7 @@ class UserListItemState extends State<UserListItem> {
           children: <Widget>[
             Container(
               child: Image(
-                image: AssetImage("assets/icons/icNullProfile.png"),
+                image: Theme.Icons.icNullProfile,
                 width: 40.0,
                 height: 40.0,
               ),
@@ -40,7 +40,7 @@ class UserListItemState extends State<UserListItem> {
             ),
             Expanded(
               child: Text(
-                '고시왕',
+                this.user.displayName,
                 style: TextStyle(
                   fontSize: 14.0,
                   color: Theme.Colors.dusk,
@@ -50,7 +50,7 @@ class UserListItemState extends State<UserListItem> {
             ),
             Container(
               child: Text(
-                'Hey~~',
+                this.user.statusMsg,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 12.0,

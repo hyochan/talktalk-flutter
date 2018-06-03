@@ -27,5 +27,6 @@ class Icons {
   static var icThumbMan = AssetImage("assets/icons/thumb-man.png");
   static var icApp = AssetImage("assets/icons/app-icon.png");
   static var icSearch = AssetImage("assets/icons/icSearch.png");
+  static var icNullProfile = AssetImage("assets/icons/icNullProfile.png");
 }
 

@@ -16,5 +16,7 @@
   "FRIEND": "Friend",
   "MESSAGE": "Message",
   "FIND_USER": "Find user",
-  "SEND": "Send"
+  "SEND": "Send",
+  "ADD_FRIEND": "Add",
+  "CHAT": "Chat"
 }
