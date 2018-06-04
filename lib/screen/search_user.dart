@@ -20,6 +20,19 @@ class SearchUser extends StatefulWidget {
 class SearchUserState extends State<SearchUser> {
   final formKey = GlobalKey<FormState>();
   List<User> userList;
+  TextEditingController txtController = new TextEditingController();
+
+  void handleSearch() {
+    print('handleSearch: ${txtController.text}');
+    userList.clear();
+    userList.add(User()); // for header
+
+    User user = User.initWithParams(
+      '', '두부랩', 'dooboolab@gmail.com', '', '알콩달콩~~',
+    );
+    userList.add(user);
+    setState(() { this.userList = userList; });
+  }
 
   void onSelectUser(User user, int index) {
     print('select user');
@@ -37,6 +50,7 @@ class SearchUserState extends State<SearchUser> {
 
   @override
   void initState() {
+    super.initState();
     userList = List<User>();
     userList.add(User()); // for header
 
@@ -82,6 +96,7 @@ class SearchUserState extends State<SearchUser> {
                     children: <Widget>[
                       Container(child:
                         TextInput(
+                          controller: this.txtController,
                           txtHint: 'hint hint',
                           background: const Color.fromRGBO(243, 243, 243, 1.0),
                           underline: false,
@@ -98,9 +113,7 @@ class SearchUserState extends State<SearchUser> {
                           RawMaterialButton(
                             padding: const EdgeInsets.all(0.0),
                             child: Image(image: Theme.Icons.icSearch),
-                            onPressed: () {
-                              print('search pressed');
-                            },
+                            onPressed: this.handleSearch,
                           ),
                           width: 40.0,
                           height: 40.0,
