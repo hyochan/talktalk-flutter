@@ -1,6 +1,7 @@
 # talktalk
 
 Firebase chatapp with flutter
+![Alt Text](https://firebasestorage.googleapis.com/v0/b/bookoo-89f6c.appspot.com/o/96tCOfASim.gif?alt=media&token=81210cbe-bbd4-4fa4-9367-ad6951fbd6b0)
 
 ## Getting Started
 
