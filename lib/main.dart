@@ -37,7 +37,7 @@ void main() {
       return supportedLocales.first;
     },
     title: 'TalkTalk',
-    home: Home(),
+    home: Loading(),
 //    home: Home(),
   ));
 }

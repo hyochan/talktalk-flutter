@@ -5,6 +5,8 @@ import '../utils/localization.dart';
 import '../shared/btn.dart';
 import '../utils/theme.dart' as Theme;
 
+import 'package:firebase_auth/firebase_auth.dart';
+
 class Login extends StatefulWidget {
   Login({Key key}) : super(key: key);
 
@@ -29,13 +31,46 @@ class LoginState extends State<Login> {
     }
   }
 
-  void _login(BuildContext context) {
+  void _login(BuildContext context) async {
+    print('email: $_email, password: $_password');
     // test version
-    Navigator.pushNamedAndRemoveUntil(
-      context,
-      '/tab_home',
-      ModalRoute.withName('/intro'),
-    );
+    final FirebaseAuth _auth = FirebaseAuth.instance;
+    try {
+      final FirebaseUser user = await _auth.signInWithEmailAndPassword(email: _email, password: _password);
+      print(user);
+
+      if (user == null) {
+        throw new Exception('no user found');
+      }
+
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        '/tab_home',
+        ModalRoute.withName('/intro'),
+      );
+    } on Exception {
+      var dialog = AlertDialog(
+        title: Text('No user found'),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[
+              Text('Check email and password.'),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          FlatButton(
+            child: Text('OK'),
+            onPressed: () {
+              Navigator.of(context).pop(); // pop alert
+            },
+          ),
+        ],
+      );
+      showDialog(context: context, builder: (BuildContext context) {
+        return dialog;
+      });
+    }
 
     // production version
     /*Map lMap = {"email": emailController.text, "pw": pwController.text};

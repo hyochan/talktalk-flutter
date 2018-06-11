@@ -5,6 +5,7 @@ import 'dart:async';
 import '../utils/localization.dart';
 import '../shared/btn.dart';
 import '../utils/theme.dart' as Theme;
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUp extends StatefulWidget {
   SignUp({Key key}) : super(key: key);
@@ -20,7 +21,7 @@ class SignUpState extends State<SignUp> {
   String _password;
   String _passwordOk;
 
-  void _submit() {
+  void _submit(BuildContext context) {
     final form = formKey.currentState;
 
     if (form.validate()) {
@@ -28,12 +29,38 @@ class SignUpState extends State<SignUp> {
 
       // Email & password matched our validation rules
       // and are saved to _email and _password fields.
-    _signUp();
+    _signUp(context);
     }
   }
 
-  void _signUp() {
-    print('signUp');
+  void _signUp (BuildContext context) async {
+    final FirebaseAuth _auth = FirebaseAuth.instance;
+    final FirebaseUser user = await _auth.createUserWithEmailAndPassword(email: _email, password: _password);
+
+    if (user != null) {
+      var dialog = AlertDialog(
+        title: Text('Sign Up Completed'),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[
+              Text('Completed signup'),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          FlatButton(
+            child: Text('OK'),
+            onPressed: () {
+              Navigator.of(context).pop(); // pop alert
+              Navigator.of(context).pop(); // pop screen
+            },
+          ),
+        ],
+      );
+      showDialog(context: context, builder: (BuildContext context) {
+        return dialog;
+      });
+    }
   }
 
   @override
@@ -136,7 +163,7 @@ class SignUpState extends State<SignUp> {
                             color: Colors.white,
                           ),
                         ),
-                        onPressed: _submit,
+                        onPressed: () { _submit(context); },
                         color: Theme.Colors.dodgerBlue,
                       ),
                       height: 60.0,
