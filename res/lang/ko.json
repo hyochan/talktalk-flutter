@@ -20,5 +20,7 @@
   "ADD_FRIEND": "친구추가",
   "CHAT": "채팅하기",
   "NAME": "이름",
-  "STATUS_MSG": "상태 메시지"
+  "STATUS_MSG": "상태 메시지",
+  "PROFILE": "프로필",
+  "UPDATE": "수정"
 }

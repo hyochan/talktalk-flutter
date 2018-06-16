@@ -7,6 +7,7 @@ import './screen/login.dart';
 import './screen/sign_up.dart';
 import './screen/find_pw.dart';
 import './screen/home.dart';
+import './screen/profile.dart';
 import './screen/search_user.dart';
 
 void main() {
@@ -14,6 +15,7 @@ void main() {
     routes: {
       '/loading': (BuildContext context) => Loading(),
       '/login': (BuildContext context) => Login(),
+      '/profile': (BuildContext context) => Profile(),
       '/sign_up': (BuildContext context) => SignUp(),
       '/find_pw': (BuildContext context) => FindPw(),
       '/tab_home': (BuildContext context) => Home(),

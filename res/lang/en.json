@@ -20,5 +20,7 @@
   "ADD_FRIEND": "Add",
   "CHAT": "Chat",
   "NAME": "Name",
-  "STATUS_MSG": "Status message"
+  "STATUS_MSG": "Status message",
+  "PROFILE": "Profile",
+  "UPDATE": "Update"
 }

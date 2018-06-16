@@ -17,11 +17,17 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin {
     tabController = TabController(length: 2, vsync: this);
   }
 
-
   @override
   void dispose() {
     tabController.dispose();
     super.dispose();
+  }
+
+  void goToScreen(String screen) {
+    Navigator.pushNamed(
+      context,
+      screen,
+    );
   }
 
   @override
@@ -45,7 +51,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     center: false,
                     color: Colors.white,
                     onPress: () {
-                      print('profile click');
+                      this.goToScreen('/profile');
                     },
                     height: 60.0,
                     fontSize: 16.0,
@@ -57,10 +63,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 IconButton(
                   icon: Icon(Icons.add),
                   onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/search_user',
-                    );
+                    this.goToScreen('/search_user');
                   },
                 ),
               ]),
