@@ -40,7 +40,7 @@ class SignUpState extends State<SignUp> {
     final FirebaseAuth _auth = FirebaseAuth.instance;
     final FirebaseUser user = await _auth.createUserWithEmailAndPassword(email: _email, password: _password);
 
-    Firestore.instance.collection('users').document()
+    Firestore.instance.collection('users').document(user.uid)
       .setData({
         'displayName': _displayName,
         'email': _email,
@@ -195,6 +195,7 @@ class SignUpState extends State<SignUp> {
                     ),
                     Container(child:
                       RaisedButton(
+
                         child: Text(
                           localization.trans('SIGN_UP'),
                           style: TextStyle(
