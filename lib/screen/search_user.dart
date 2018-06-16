@@ -23,6 +23,24 @@ class SearchUserState extends State<SearchUser> {
   TextEditingController txtController = new TextEditingController();
 
   void handleSearch() {
+    if (txtController.text == '') {
+      userList.clear();
+      userList.add(User()); // for header
+
+      User user = User.initWithParams(
+        '', '두부랩', 'dooboolab@gmail.com', '', '알콩달콩~~',
+      );
+      userList.add(user);
+      user = User.initWithParams(
+        '', '테스터', 'tester@gmail.com', '', '디버깅~~',
+      );
+      userList.add(user);
+      setState(() {
+        this.userList = userList;
+      });
+
+      return;
+    }
     print('handleSearch: ${txtController.text}');
     userList.clear();
     userList.add(User()); // for header

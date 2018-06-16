@@ -4,6 +4,7 @@ description: Firebase chatapp with flutter
 dependencies:
   validator: ">=0.0.4 <0.1.0"
   firebase_auth: "^0.5.11"
+  cloud_firestore: "^0.7.3"
   flutter:
     sdk: flutter
   flutter_localizations:

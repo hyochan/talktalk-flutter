@@ -6,6 +6,7 @@ import '../utils/localization.dart';
 import '../shared/btn.dart';
 import '../utils/theme.dart' as Theme;
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignUp extends StatefulWidget {
   SignUp({Key key}) : super(key: key);
@@ -20,6 +21,8 @@ class SignUpState extends State<SignUp> {
   String _email;
   String _password;
   String _passwordOk;
+  String _displayName;
+  String _statusMsg;
 
   void _submit(BuildContext context) {
     final form = formKey.currentState;
@@ -36,6 +39,14 @@ class SignUpState extends State<SignUp> {
   void _signUp (BuildContext context) async {
     final FirebaseAuth _auth = FirebaseAuth.instance;
     final FirebaseUser user = await _auth.createUserWithEmailAndPassword(email: _email, password: _password);
+
+    Firestore.instance.collection('users').document()
+      .setData({
+        'displayName': _displayName,
+        'email': _email,
+        'photoURL': '',
+        'statusMsg': _statusMsg,
+      });
 
     if (user != null) {
       var dialog = AlertDialog(
@@ -111,7 +122,7 @@ class SignUpState extends State<SignUp> {
                         autocorrect: false,
                         onSaved: (val) => _email = val,
                       ),
-                      margin: const EdgeInsets.only(top: 60.0),
+                      margin: const EdgeInsets.only(top: 40.0),
                     ),
                     Container(child:
                       TextFormField(
@@ -132,7 +143,7 @@ class SignUpState extends State<SignUp> {
                         onSaved: (val) => _password = val,
                         obscureText: true,
                       ),
-                      margin: const EdgeInsets.only(top: 32.0),
+                      margin: const EdgeInsets.only(top: 24.0),
                     ),
                     Container(child:
                       TextFormField(
@@ -152,7 +163,35 @@ class SignUpState extends State<SignUp> {
                         onSaved: (val) => _passwordOk = val,
                         obscureText: true,
                       ),
-                      margin: const EdgeInsets.only(top: 32.0),
+                      margin: const EdgeInsets.only(top: 24.0),
+                    ),
+                    Container(child:
+                      TextFormField(
+                        decoration: InputDecoration(
+                          labelText: localization.trans('NAME'),
+                          hintText: localization.trans('NAME'),
+                          border: OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(4.0),
+                          ),
+                        ),
+                        autocorrect: false,
+                        onSaved: (val) => _displayName = val,
+                      ),
+                      margin: const EdgeInsets.only(top: 24.0),
+                    ),
+                    Container(child:
+                      TextFormField(
+                        decoration: InputDecoration(
+                          labelText: localization.trans('STATUS_MSG'),
+                          hintText: localization.trans('STATUS_MSG'),
+                          border: OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(4.0),
+                          ),
+                        ),
+                        autocorrect: false,
+                        onSaved: (val) => _statusMsg = val,
+                      ),
+                      margin: const EdgeInsets.only(top: 24.0),
                     ),
                     Container(child:
                       RaisedButton(
@@ -167,7 +206,7 @@ class SignUpState extends State<SignUp> {
                         color: Theme.Colors.dodgerBlue,
                       ),
                       height: 60.0,
-                      margin: const EdgeInsets.only(top: 40.0, bottom: 80.0),
+                      margin: const EdgeInsets.only(top: 32.0, bottom: 80.0),
                     ),
                   ],
                 )),

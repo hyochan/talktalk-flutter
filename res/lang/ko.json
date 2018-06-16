@@ -18,5 +18,7 @@
   "FIND_USER": "사용자 검색",
   "SEND": "보내기",
   "ADD_FRIEND": "친구추가",
-  "CHAT": "채팅하기"
+  "CHAT": "채팅하기",
+  "NAME": "이름",
+  "STATUS_MSG": "상태 메시지"
 }
