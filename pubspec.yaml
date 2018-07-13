@@ -34,18 +34,18 @@ flutter:
   assets:
     - res/lang/en.json
     - res/lang/ko.json
-    - assets/icons/app-icon.png
-    - assets/icons/2.0x/app-icon.png
-    - assets/icons/3.0x/app-icon.png
-    - assets/icons/thumb-man.png
-    - assets/icons/2.0x/thumb-man.png
-    - assets/icons/3.0x/thumb-man.png
-    - assets/icons/icSearch.png
-    - assets/icons/2.0x/icSearch.png
-    - assets/icons/3.0x/icSearch.png
-    - assets/icons/icNullProfile.png
-    - assets/icons/2.0x/icNullProfile.png
-    - assets/icons/3.0x/icNullProfile.png
+    - res/icons/app-icon.png
+    - res/icons/2.0x/app-icon.png
+    - res/icons/3.0x/app-icon.png
+    - res/icons/thumb-man.png
+    - res/icons/2.0x/thumb-man.png
+    - res/icons/3.0x/thumb-man.png
+    - res/icons/icSearch.png
+    - res/icons/2.0x/icSearch.png
+    - res/icons/3.0x/icSearch.png
+    - res/icons/icNullProfile.png
+    - res/icons/2.0x/icNullProfile.png
+    - res/icons/3.0x/icNullProfile.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
