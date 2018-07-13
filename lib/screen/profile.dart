@@ -18,14 +18,16 @@ class Profile extends StatefulWidget {
 class SignUpState extends State<Profile> {
   final formKey = GlobalKey<FormState>();
 
-  String _displayName;
-  String _statusMsg;
+  bool _loaded = false;
+  final displayController = TextEditingController();
+  final statusMsgController = TextEditingController();
 
   Future<DocumentSnapshot> getData() async {
     FirebaseUser user = await FirebaseAuth.instance.currentUser();
     DocumentSnapshot snapshot = await Firestore.instance.collection('users').document(user.uid).get();
-//    this._displayName = snapshot.data['displayName'];
-//    this._statusMsg = snapshot.data['statusMsg'];
+    displayController.text = snapshot.data['displayName'];
+    statusMsgController.text= snapshot.data['statusMsg'];
+    print('snapshot: ${snapshot.data.toString()}');
     return snapshot;
   }
 
@@ -42,13 +44,16 @@ class SignUpState extends State<Profile> {
   }
 
   void _update(BuildContext context) async {
-    final FirebaseAuth _auth = FirebaseAuth.instance;
+    FirebaseUser user = await FirebaseAuth.instance.currentUser();
+    print('user.uid: ${user.uid}');
+    print('displayName: ${this.displayController.text}');
+    print('displayName: ${this.displayController.text}');
 
-    Firestore.instance.collection('users').document()
+    Firestore.instance.collection('users').document(user.uid)
     .setData({
-      'displayName': _displayName,
+      'displayName': this.displayController.text,
       'photoURL': '',
-      'statusMsg': _statusMsg,
+      'statusMsg': this.statusMsgController.text,
     });
 
 //    if (user != null) {
@@ -102,90 +107,91 @@ class SignUpState extends State<Profile> {
         future: this.getData(),
         builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
           switch (snapshot.connectionState) {
-            case ConnectionState.none: return new Text('Press button to start');
-            case ConnectionState.waiting: return new Text('Awaiting result...');
+//            case ConnectionState.none:
+//              return new Text('Press button to start');
+//            case ConnectionState.waiting:
+//              return new Text('Awaiting result...');
             default:
-              return Container(
-                child: Form(
+              return Scaffold(
+                body: Form(
                   key: formKey,
                   child: CustomScrollView(
                     slivers: <Widget>[
                       SliverPadding(
                         padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                         sliver: SliverList(
-                            delegate: SliverChildListDelegate(
-                              <Widget>[
-                                Container(
-                                  child: FlatButton(
-                                    child: Image(
-                                      image: Theme.Icons.icThumbMan,
-                                      width: 120.0,
-                                      height: 120.0,
-                                    ),
-                                    onPressed: () {
-                                      print('onPressed');
-                                    },
-                                    color: Colors.transparent,
-                                  ),
-                                  margin: const EdgeInsets.only(top: 32.0),
-                                  width: 88.0,
-                                  height: 88.0,
+                        delegate: SliverChildListDelegate(
+                          <Widget>[
+                            Container(
+                              child: FlatButton(
+                                child: Image(
+                                  image: Theme.Icons.icThumbMan,
+                                  width: 120.0,
+                                  height: 120.0,
                                 ),
-                                Container(child:
-                                  TextFormField(
-                                    decoration: InputDecoration(
-                                      labelText: localization.trans('NAME'),
-                                      hintText: localization.trans('NAME'),
-                                      border: OutlineInputBorder(
-                                        borderRadius: new BorderRadius.circular(4.0),
-                                      ),
-                                    ),
-                                    autocorrect: false,
-                                    onSaved: (val) => _displayName = val,
-                                    initialValue: snapshot.data['displayName'],
+                                onPressed: () {
+                                  print('onPressed');
+                                },
+                                color: Colors.transparent,
+                              ),
+                              margin: const EdgeInsets.only(top: 32.0),
+                              width: 88.0,
+                              height: 88.0,
+                            ),
+                            Container(child:
+                              TextFormField(
+                                decoration: InputDecoration(
+                                  labelText: localization.trans('NAME'),
+                                  hintText: localization.trans('NAME'),
+                                  border: OutlineInputBorder(
+                                    borderRadius: new BorderRadius.circular(4.0),
                                   ),
-                                  margin: const EdgeInsets.only(top: 40.0),
                                 ),
-                                Container(child:
-                                  TextFormField(
-                                    decoration: InputDecoration(
-                                      labelText: localization.trans('STATUS_MSG'),
-                                      hintText: localization.trans('STATUS_MSG'),
-                                      border: OutlineInputBorder(
-                                        borderRadius: new BorderRadius.circular(4.0),
-                                      ),
-                                    ),
-                                    autocorrect: false,
-                                    onSaved: (val) => _statusMsg = val,
-                                    initialValue: snapshot.data['statusMsg'],
+                                controller: displayController,
+                                autocorrect: false,
+                              ),
+                              margin: const EdgeInsets.only(top: 40.0),
+                            ),
+                            Container(child:
+                              TextFormField(
+                                decoration: InputDecoration(
+                                  labelText: localization.trans('STATUS_MSG'),
+                                  hintText: localization.trans('STATUS_MSG'),
+                                  border: OutlineInputBorder(
+                                    borderRadius: new BorderRadius.circular(4.0),
                                   ),
-                                  margin: const EdgeInsets.only(top: 24.0),
                                 ),
-                                Container(child:
-                                  RaisedButton(
-                                    child: Text(
-                                      localization.trans('UPDATE'),
-                                      style: TextStyle(
-                                        fontSize: 16.0,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    onPressed: () { _submit(context); },
-                                    color: Theme.Colors.dodgerBlue,
+                                controller: statusMsgController,
+                                autocorrect: false,
+                              ),
+                              margin: const EdgeInsets.only(top: 24.0),
+                            ),
+                            Container(child:
+                              RaisedButton(
+                                child: Text(
+                                  localization.trans('UPDATE'),
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    color: Colors.white,
                                   ),
-                                  height: 60.0,
-                                  margin: const EdgeInsets.only(top: 32.0, bottom: 80.0),
                                 ),
-                              ],
-                            )),
+                                onPressed: () { _submit(context); },
+                                color: Theme.Colors.dodgerBlue,
+                              ),
+                              height: 60.0,
+                              margin: const EdgeInsets.only(top: 32.0, bottom: 80.0),
+                            ),
+                          ],
+                        )),
                       ),
                     ],
                   ),
                 ),
-                constraints: BoxConstraints.expand(
-                  height: double.infinity,
-                  width: double.infinity,
-                ),
+                resizeToAvoidBottomPadding: false,
+//                constraints: BoxConstraints.expand(
+//                  height: double.infinity,
+//                  width: double.infinity,
+//                ),
               );
           }
         },
