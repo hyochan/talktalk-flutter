@@ -60,7 +60,8 @@ class LoadingState extends State<Loading> {
           width: double.infinity,
         ),
         decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [Theme.Colors.dodgerBlue, Theme.Colors.skyBlue],
+          gradient: LinearGradient(
+            colors: [Theme.Colors.dodgerBlue, Theme.Colors.skyBlue],
             begin: FractionalOffset(0.0, 0.4),
             end: FractionalOffset(1.0, 0.6),
             stops: [0.0, 1.0],

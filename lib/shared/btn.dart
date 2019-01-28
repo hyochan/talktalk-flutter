@@ -34,8 +34,8 @@ class Btn extends StatelessWidget {
     var text;
     var boxDecoration;
     if (this.center == true) {
-      text = Center(child:
-        Text(
+      text = Center(
+        child: Text(
           this.txt,
           style: TextStyle(
             color: this.color,
@@ -64,21 +64,23 @@ class Btn extends StatelessWidget {
         border: Border.all(width: 0.0, color: Colors.transparent),
       );
     }
-    return Container(child:
-      FlatButton(
+    return Container(
+      child: FlatButton(
         child: Column(children: <Widget>[
-          Expanded(child:
-            Stack(
+          Expanded(
+            child: Stack(
               alignment: this.alignment,
               children: <Widget>[
-                Positioned(child:
-                  Container(child:
-                    this.image,
+                Positioned(
+                  child: Container(
+                    child: this.image,
                   ),
                   left: 2.0,
                 ),
-                Container(child: text,
-                  margin: this.center ? const EdgeInsets.all(0.0) : this.txtMargin,
+                Container(
+                  child: text,
+                  margin:
+                      this.center ? const EdgeInsets.all(0.0) : this.txtMargin,
                 ),
               ],
             ),
@@ -91,7 +93,8 @@ class Btn extends StatelessWidget {
       decoration: boxDecoration,
       margin: this.margin,
       height: this.height,
-      width: this.width != null ? this.width : MediaQuery.of(context).size.width,
+      width:
+          this.width != null ? this.width : MediaQuery.of(context).size.width,
     );
   }
 }

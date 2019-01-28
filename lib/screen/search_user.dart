@@ -1,4 +1,3 @@
-import 'package:validator/validator.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -28,11 +27,19 @@ class SearchUserState extends State<SearchUser> {
       userList.add(User()); // for header
 
       User user = User.initWithParams(
-        '', '두부랩', 'dooboolab@gmail.com', '', '알콩달콩~~',
+        '',
+        '두부랩',
+        'dooboolab@gmail.com',
+        '',
+        '알콩달콩~~',
       );
       userList.add(user);
       user = User.initWithParams(
-        '', '테스터', 'tester@gmail.com', '', '디버깅~~',
+        '',
+        '테스터',
+        'tester@gmail.com',
+        '',
+        '디버깅~~',
       );
       userList.add(user);
       setState(() {
@@ -46,24 +53,32 @@ class SearchUserState extends State<SearchUser> {
     userList.add(User()); // for header
 
     User user = User.initWithParams(
-      '', '두부랩', 'dooboolab@gmail.com', '', '알콩달콩~~',
+      '',
+      '두부랩',
+      'dooboolab@gmail.com',
+      '',
+      '알콩달콩~~',
     );
     userList.add(user);
-    setState(() { this.userList = userList; });
+    setState(() {
+      this.userList = userList;
+    });
   }
 
   void onSelectUser(User user, int index) {
     print('select user');
-    showDialog(context: context, child: UserDialog(
-      index: index,
-      user: user,
-      handleAdd: () {
-        print('handleAdd $index');
-      },
-      handleChat: () {
-        print('handleChat ${user.displayName}');
-      },
-    ));
+    showDialog(
+        context: context,
+        child: UserDialog(
+          index: index,
+          user: user,
+          handleAdd: () {
+            print('handleAdd $index');
+          },
+          handleChat: () {
+            print('handleChat ${user.displayName}');
+          },
+        ));
   }
 
   @override
@@ -73,11 +88,19 @@ class SearchUserState extends State<SearchUser> {
     userList.add(User()); // for header
 
     User user = User.initWithParams(
-      '', '두부랩', 'dooboolab@gmail.com', '', '알콩달콩~~',
+      '',
+      '두부랩',
+      'dooboolab@gmail.com',
+      '',
+      '알콩달콩~~',
     );
     userList.add(user);
     user = User.initWithParams(
-      '', '테스터', 'tester@gmail.com', '', '디버깅~~',
+      '',
+      '테스터',
+      'tester@gmail.com',
+      '',
+      '디버깅~~',
     );
     userList.add(user);
   }
@@ -88,7 +111,8 @@ class SearchUserState extends State<SearchUser> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(localization.trans('FIND_USER'), style: TextStyle(color: Colors.black87)),
+        title: Text(localization.trans('FIND_USER'),
+            style: TextStyle(color: Colors.black87)),
         backgroundColor: Colors.white,
         brightness: Brightness.light,
         iconTheme: IconThemeData(color: Colors.black87),
@@ -112,8 +136,8 @@ class SearchUserState extends State<SearchUser> {
                 return Column(children: <Widget>[
                   Stack(
                     children: <Widget>[
-                      Container(child:
-                        TextInput(
+                      Container(
+                        child: TextInput(
                           controller: this.txtController,
                           txtHint: 'hint hint',
                           background: const Color.fromRGBO(243, 243, 243, 1.0),
@@ -126,9 +150,9 @@ class SearchUserState extends State<SearchUser> {
                           borderColor: Colors.transparent,
                         ),
                       ),
-                      Positioned(child:
-                        Container(child:
-                          RawMaterialButton(
+                      Positioned(
+                        child: Container(
+                          child: RawMaterialButton(
                             padding: const EdgeInsets.all(0.0),
                             child: Image(image: Theme.Icons.icSearch),
                             onPressed: this.handleSearch,

@@ -1,4 +1,3 @@
-import 'package:validator/validator.dart';
 import 'package:flutter/material.dart';
 
 import 'dart:async';
@@ -32,21 +31,21 @@ class SignUpState extends State<SignUp> {
 
       // Email & password matched our validation rules
       // and are saved to _email and _password fields.
-    _signUp(context);
+      _signUp(context);
     }
   }
 
-  void _signUp (BuildContext context) async {
+  void _signUp(BuildContext context) async {
     final FirebaseAuth _auth = FirebaseAuth.instance;
-    final FirebaseUser user = await _auth.createUserWithEmailAndPassword(email: _email, password: _password);
+    final FirebaseUser user = await _auth.createUserWithEmailAndPassword(
+        email: _email, password: _password);
 
-    Firestore.instance.collection('users').document(user.uid)
-      .setData({
-        'displayName': _displayName,
-        'email': _email,
-        'photoURL': '',
-        'statusMsg': _statusMsg,
-      });
+    Firestore.instance.collection('users').document(user.uid).setData({
+      'displayName': _displayName,
+      'email': _email,
+      'photoURL': '',
+      'statusMsg': _statusMsg,
+    });
 
     if (user != null) {
       var dialog = AlertDialog(
@@ -68,9 +67,11 @@ class SignUpState extends State<SignUp> {
           ),
         ],
       );
-      showDialog(context: context, builder: (BuildContext context) {
-        return dialog;
-      });
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return dialog;
+          });
     }
   }
 
@@ -80,7 +81,8 @@ class SignUpState extends State<SignUp> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(localization.trans('SIGN_UP'), style: TextStyle(color: Colors.black87)),
+        title: Text(localization.trans('SIGN_UP'),
+            style: TextStyle(color: Colors.black87)),
         backgroundColor: Colors.white,
         brightness: Brightness.light,
         iconTheme: IconThemeData(color: Colors.black87),
@@ -103,10 +105,10 @@ class SignUpState extends State<SignUp> {
               SliverPadding(
                 padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                 sliver: SliverList(
-                delegate: SliverChildListDelegate(
+                    delegate: SliverChildListDelegate(
                   <Widget>[
-                    Container(child:
-                      TextFormField(
+                    Container(
+                      child: TextFormField(
                         decoration: InputDecoration(
                           labelText: localization.trans('EMAIL_ADDRESS'),
                           hintText: localization.trans('EMAIL_HINT'),
@@ -115,17 +117,17 @@ class SignUpState extends State<SignUp> {
                           ),
                         ),
                         validator: (val) {
-                          if (!isEmail(val)) {
-                            return localization.trans('NOT_VALID_EMAIL');
-                          }
+//                          if (!isEmail(val)) {
+//                            return localization.trans('NOT_VALID_EMAIL');
+//                          }
                         },
                         autocorrect: false,
                         onSaved: (val) => _email = val,
                       ),
                       margin: const EdgeInsets.only(top: 40.0),
                     ),
-                    Container(child:
-                      TextFormField(
+                    Container(
+                      child: TextFormField(
                         decoration: InputDecoration(
                           labelText: localization.trans('PASSWORD'),
                           hintText: localization.trans('PASSWORD_HINT'),
@@ -134,7 +136,7 @@ class SignUpState extends State<SignUp> {
                           ),
                         ),
                         validator: (val) {
-                          if (val.length < 6 || isAlpha(val) || isNumeric(val)) {
+                          if (val.length < 6) {
                             return localization.trans('NOT_VALID_PASSWORD');
                           }
                           _password = val;
@@ -145,8 +147,8 @@ class SignUpState extends State<SignUp> {
                       ),
                       margin: const EdgeInsets.only(top: 24.0),
                     ),
-                    Container(child:
-                      TextFormField(
+                    Container(
+                      child: TextFormField(
                         decoration: InputDecoration(
                           labelText: localization.trans('PASSWORD_OK'),
                           hintText: localization.trans('PASSWORD_OK_HINT'),
@@ -165,8 +167,8 @@ class SignUpState extends State<SignUp> {
                       ),
                       margin: const EdgeInsets.only(top: 24.0),
                     ),
-                    Container(child:
-                      TextFormField(
+                    Container(
+                      child: TextFormField(
                         decoration: InputDecoration(
                           labelText: localization.trans('NAME'),
                           hintText: localization.trans('NAME'),
@@ -179,8 +181,8 @@ class SignUpState extends State<SignUp> {
                       ),
                       margin: const EdgeInsets.only(top: 24.0),
                     ),
-                    Container(child:
-                      TextFormField(
+                    Container(
+                      child: TextFormField(
                         decoration: InputDecoration(
                           labelText: localization.trans('STATUS_MSG'),
                           hintText: localization.trans('STATUS_MSG'),
@@ -193,9 +195,8 @@ class SignUpState extends State<SignUp> {
                       ),
                       margin: const EdgeInsets.only(top: 24.0),
                     ),
-                    Container(child:
-                      RaisedButton(
-
+                    Container(
+                      child: RaisedButton(
                         child: Text(
                           localization.trans('SIGN_UP'),
                           style: TextStyle(
@@ -203,7 +204,9 @@ class SignUpState extends State<SignUp> {
                             color: Colors.white,
                           ),
                         ),
-                        onPressed: () { _submit(context); },
+                        onPressed: () {
+                          _submit(context);
+                        },
                         color: Theme.Colors.dodgerBlue,
                       ),
                       height: 60.0,

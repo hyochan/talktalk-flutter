@@ -1,10 +1,10 @@
 class Numbers {
   kFormatter(int number) {
     if (number > 999999) {
-      return '${(number/1000000).toStringAsFixed(2)}m';
+      return '${(number / 1000000).toStringAsFixed(2)}m';
     }
     if (number > 999) {
-      return '${(number/1000).toStringAsFixed(1)}k';
+      return '${(number / 1000).toStringAsFixed(1)}k';
     }
     return '$number';
   }

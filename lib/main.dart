@@ -21,18 +21,21 @@ void main() {
       '/tab_home': (BuildContext context) => Home(),
       '/search_user': (BuildContext context) => SearchUser(),
     },
-    supportedLocales: [
-      const Locale('en', 'US'),
-      const Locale('ko', 'KR')
-    ],
+    supportedLocales: [const Locale('en', 'US'), const Locale('ko', 'KR')],
     localizationsDelegates: [
       const LocalizationDelegate(),
       GlobalMaterialLocalizations.delegate,
       GlobalWidgetsLocalizations.delegate
     ],
-    localeResolutionCallback: (Locale locale, Iterable<Locale> supportedLocales) {
+    localeResolutionCallback:
+        (Locale locale, Iterable<Locale> supportedLocales) {
+      if (locale == null) {
+        debugPrint("*language locale is null!!!");
+        return supportedLocales.first;
+      }
       for (Locale supportedLocale in supportedLocales) {
-        if (supportedLocale.languageCode == locale.languageCode || supportedLocale.countryCode == locale.countryCode) {
+        if (supportedLocale.languageCode == locale.languageCode ||
+            supportedLocale.countryCode == locale.countryCode) {
           return supportedLocale;
         }
       }

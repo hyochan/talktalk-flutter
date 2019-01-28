@@ -1,4 +1,4 @@
-class User  {
+class User {
   String _id;
   String displayName;
   String email;
@@ -17,10 +17,10 @@ class User  {
         img = '',
         statusMsg = '',
         createdAt = DateTime.now(),
-        updatedAt = DateTime.now()
-  ;
+        updatedAt = DateTime.now();
 
-  User.initWithParams(String _id, String displayName, String email, String img, String statusMsg) {
+  User.initWithParams(String _id, String displayName, String email, String img,
+      String statusMsg) {
     this._id = id;
     this.displayName = displayName;
     this.email = email;

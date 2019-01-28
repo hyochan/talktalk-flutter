@@ -37,11 +37,11 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
         title: Column(children: <Widget>[
-          Expanded(child:
-            Container(child:
-              Row(children: <Widget>[
-                Expanded(child:
-                  Btn(
+          Expanded(
+            child: Container(
+              child: Row(children: <Widget>[
+                Expanded(
+                  child: Btn(
                     image: Image(
                       image: Theme.Icons.icThumbMan,
                       width: 40.0,
@@ -100,8 +100,8 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin {
           labelColor: Color.fromRGBO(102, 134, 205, 1.0),
           indicatorColor: Color.fromRGBO(200, 109, 215, 1.0),
         ),
-        Expanded(child:
-          TabBarView(
+        Expanded(
+          child: TabBarView(
             controller: tabController,
             children: [
               Icon(Icons.android),

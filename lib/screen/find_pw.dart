@@ -1,4 +1,3 @@
-import 'package:validator/validator.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/localization.dart';
@@ -35,7 +34,8 @@ class FindPwState extends State<FindPw> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(localization.trans('FIND_PASSWORD'), style: TextStyle(color: Colors.black87)),
+        title: Text(localization.trans('FIND_PASSWORD'),
+            style: TextStyle(color: Colors.black87)),
         backgroundColor: Colors.white,
         brightness: Brightness.light,
         iconTheme: IconThemeData(color: Colors.black87),
@@ -51,7 +51,7 @@ class FindPwState extends State<FindPw> {
         ]*/
       ),
       body: Container(
-        child:Form(
+        child: Form(
           key: formKey,
           child: CustomScrollView(
             slivers: <Widget>[
@@ -60,8 +60,8 @@ class FindPwState extends State<FindPw> {
                 sliver: SliverList(
                   delegate: SliverChildListDelegate(
                     <Widget>[
-                      Container(child:
-                        TextFormField(
+                      Container(
+                        child: TextFormField(
                           decoration: InputDecoration(
                             labelText: localization.trans('EMAIL_ADDRESS'),
                             hintText: localization.trans('EMAIL_HINT'),
@@ -70,17 +70,17 @@ class FindPwState extends State<FindPw> {
                             ),
                           ),
                           validator: (val) {
-                            if (!isEmail(val)) {
-                              return localization.trans('NOT_VALID_EMAIL');
-                            }
+//                            if (!isEmail(val)) {
+//                              return localization.trans('NOT_VALID_EMAIL');
+//                            }
                           },
                           autocorrect: false,
                           onSaved: (val) => _email = val,
                         ),
                         margin: const EdgeInsets.only(top: 40.0),
                       ),
-                      Container(child:
-                        RaisedButton(
+                      Container(
+                        child: RaisedButton(
                           child: Text(
                             localization.trans('SEND'),
                             style: TextStyle(

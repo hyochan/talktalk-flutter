@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class Colors {
   Colors._(); // this basically makes it so you can instantiate this class
   static const whiteGray = Color.fromARGB(255, 249, 251, 253);
-  static const darkGray= Color.fromARGB(255, 80, 100, 140);
+  static const darkGray = Color.fromARGB(255, 80, 100, 140);
   static const mediumGray = Color.fromARGB(255, 134, 154, 183);
   static const paleGrayLight = Color.fromARGB(255, 221, 226, 236);
-  static const paleGray = Color.fromARGB(255, 220,226,235);
+  static const paleGray = Color.fromARGB(255, 220, 226, 235);
   static const red = Color.fromARGB(255, 255, 114, 141);
   static const orange = Color.fromARGB(255, 245, 166, 35);
   static const yellow = Color.fromARGB(255, 238, 208, 0);
@@ -24,9 +24,8 @@ class Colors {
 
 class Icons {
   Icons._();
-  static var icThumbMan = AssetImage("assets/icons/thumb-man.png");
-  static var icApp = AssetImage("assets/icons/app-icon.png");
-  static var icSearch = AssetImage("assets/icons/icSearch.png");
-  static var icNullProfile = AssetImage("assets/icons/icNullProfile.png");
+  static var icThumbMan = AssetImage("res/icons/thumb-man.png");
+  static var icApp = AssetImage("res/icons/app-icon.png");
+  static var icSearch = AssetImage("res/icons/icSearch.png");
+  static var icNullProfile = AssetImage("res/icons/icNullProfile.png");
 }
-

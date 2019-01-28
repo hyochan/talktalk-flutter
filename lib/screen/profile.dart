@@ -1,4 +1,3 @@
-import 'package:validator/validator.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import '../utils/localization.dart';
@@ -18,15 +17,15 @@ class Profile extends StatefulWidget {
 class SignUpState extends State<Profile> {
   final formKey = GlobalKey<FormState>();
 
-  bool _loaded = false;
   final displayController = TextEditingController();
   final statusMsgController = TextEditingController();
 
   Future<DocumentSnapshot> getData() async {
     FirebaseUser user = await FirebaseAuth.instance.currentUser();
-    DocumentSnapshot snapshot = await Firestore.instance.collection('users').document(user.uid).get();
+    DocumentSnapshot snapshot =
+        await Firestore.instance.collection('users').document(user.uid).get();
     displayController.text = snapshot.data['displayName'];
-    statusMsgController.text= snapshot.data['statusMsg'];
+    statusMsgController.text = snapshot.data['statusMsg'];
     print('snapshot: ${snapshot.data.toString()}');
     return snapshot;
   }
@@ -49,8 +48,7 @@ class SignUpState extends State<Profile> {
     print('displayName: ${this.displayController.text}');
     print('displayName: ${this.displayController.text}');
 
-    Firestore.instance.collection('users').document(user.uid)
-    .setData({
+    Firestore.instance.collection('users').document(user.uid).setData({
       'displayName': this.displayController.text,
       'photoURL': '',
       'statusMsg': this.statusMsgController.text,
@@ -88,7 +86,8 @@ class SignUpState extends State<Profile> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(localization.trans('PROFILE'), style: TextStyle(color: Colors.black87)),
+        title: Text(localization.trans('PROFILE'),
+            style: TextStyle(color: Colors.black87)),
         backgroundColor: Colors.white,
         brightness: Brightness.light,
         iconTheme: IconThemeData(color: Colors.black87),
@@ -105,7 +104,8 @@ class SignUpState extends State<Profile> {
       ),
       body: FutureBuilder<DocumentSnapshot>(
         future: this.getData(),
-        builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        builder:
+            (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
           switch (snapshot.connectionState) {
 //            case ConnectionState.none:
 //              return new Text('Press button to start');
@@ -120,7 +120,7 @@ class SignUpState extends State<Profile> {
                       SliverPadding(
                         padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                         sliver: SliverList(
-                        delegate: SliverChildListDelegate(
+                            delegate: SliverChildListDelegate(
                           <Widget>[
                             Container(
                               child: FlatButton(
@@ -138,13 +138,14 @@ class SignUpState extends State<Profile> {
                               width: 88.0,
                               height: 88.0,
                             ),
-                            Container(child:
-                              TextFormField(
+                            Container(
+                              child: TextFormField(
                                 decoration: InputDecoration(
                                   labelText: localization.trans('NAME'),
                                   hintText: localization.trans('NAME'),
                                   border: OutlineInputBorder(
-                                    borderRadius: new BorderRadius.circular(4.0),
+                                    borderRadius:
+                                        new BorderRadius.circular(4.0),
                                   ),
                                 ),
                                 controller: displayController,
@@ -152,13 +153,14 @@ class SignUpState extends State<Profile> {
                               ),
                               margin: const EdgeInsets.only(top: 40.0),
                             ),
-                            Container(child:
-                              TextFormField(
+                            Container(
+                              child: TextFormField(
                                 decoration: InputDecoration(
                                   labelText: localization.trans('STATUS_MSG'),
                                   hintText: localization.trans('STATUS_MSG'),
                                   border: OutlineInputBorder(
-                                    borderRadius: new BorderRadius.circular(4.0),
+                                    borderRadius:
+                                        new BorderRadius.circular(4.0),
                                   ),
                                 ),
                                 controller: statusMsgController,
@@ -166,8 +168,8 @@ class SignUpState extends State<Profile> {
                               ),
                               margin: const EdgeInsets.only(top: 24.0),
                             ),
-                            Container(child:
-                              RaisedButton(
+                            Container(
+                              child: RaisedButton(
                                 child: Text(
                                   localization.trans('UPDATE'),
                                   style: TextStyle(
@@ -175,11 +177,14 @@ class SignUpState extends State<Profile> {
                                     color: Colors.white,
                                   ),
                                 ),
-                                onPressed: () { _submit(context); },
+                                onPressed: () {
+                                  _submit(context);
+                                },
                                 color: Theme.Colors.dodgerBlue,
                               ),
                               height: 60.0,
-                              margin: const EdgeInsets.only(top: 32.0, bottom: 80.0),
+                              margin: const EdgeInsets.only(
+                                  top: 32.0, bottom: 80.0),
                             ),
                           ],
                         )),

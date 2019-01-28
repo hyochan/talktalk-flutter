@@ -14,7 +14,7 @@ class TextInput extends StatelessWidget {
     ),
     this.borderColor = const Color.fromRGBO(74, 74, 74, 1.0),
     this.margin = const EdgeInsets.only(top: 8.0),
-    this.padding= const EdgeInsets.all(0.0),
+    this.padding = const EdgeInsets.all(0.0),
     this.underline = true,
     this.background = Colors.white,
   });
@@ -31,7 +31,6 @@ class TextInput extends StatelessWidget {
   final padding;
   final underline;
   final background;
-
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +50,8 @@ class TextInput extends StatelessWidget {
       );
     }
     return Column(children: <Widget>[
-      Container(child:
-        TextField(
+      Container(
+        child: TextField(
           controller: this.controller,
           style: this.txtStyle,
           onChanged: this.onChanged,

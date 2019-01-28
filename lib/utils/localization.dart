@@ -18,7 +18,8 @@ class Localization {
   Future<bool> load() async {
     print('languageCode: ${this.locale.languageCode}');
 
-    String data = await rootBundle.loadString('res/lang/${this.locale.languageCode}.json');
+    String data = await rootBundle
+        .loadString('res/langs/${this.locale.languageCode}.json');
     print('$data');
 
     this._sentences = json.decode(data);
@@ -26,6 +27,9 @@ class Localization {
   }
 
   String trans(String key) {
+    if (key == null) {
+      return '...';
+    }
     return this._sentences[key];
   }
 }
@@ -34,7 +38,7 @@ class LocalizationDelegate extends LocalizationsDelegate<Localization> {
   const LocalizationDelegate();
 
   @override
-  bool isSupported(Locale locale) => ['en', 'ko', 'jp'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => ['en', 'ko'].contains(locale.languageCode);
 
   @override
   Future<Localization> load(Locale locale) async {
