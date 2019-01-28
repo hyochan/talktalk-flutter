@@ -69,16 +69,19 @@ class SearchUserState extends State<SearchUser> {
     print('select user');
     showDialog(
         context: context,
-        child: UserDialog(
-          index: index,
-          user: user,
-          handleAdd: () {
-            print('handleAdd $index');
-          },
-          handleChat: () {
-            print('handleChat ${user.displayName}');
-          },
-        ));
+        builder: (context) {
+          return UserDialog(
+            index: index,
+            user: user,
+            handleAdd: () {
+              print('handleAdd $index');
+            },
+            handleChat: () {
+              print('handleChat ${user.displayName}');
+            },
+          );
+        },
+    );
   }
 
   @override

@@ -30,7 +30,7 @@ class LoginState extends State<Login> {
     }
   }
 
-  void _login(BuildContext context) async {
+  Future<void> _login(BuildContext context) async {
     print('email: $_email, password: $_password');
     // test version
     final FirebaseAuth _auth = FirebaseAuth.instance;

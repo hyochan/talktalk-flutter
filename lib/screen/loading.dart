@@ -14,6 +14,7 @@ class Loading extends StatefulWidget {
 class LoadingState extends State<Loading> {
   @override
   void initState() {
+    super.initState();
     Timer(Duration(seconds: 1), () {
       Navigator.pushNamedAndRemoveUntil(
         context,
